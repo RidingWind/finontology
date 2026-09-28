@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+ontology-venv/
+
+# 备份与压缩包本体（示例：家目录 git 备份）
+*.tar.gz
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log

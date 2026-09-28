@@ -1,0 +1,8 @@
+.venv/
+ontology-venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+Thumbs.db
+*.log

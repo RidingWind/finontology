@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-09-27T09:29:00",
+  "source_ontology": "http://www.bank.example/ontology/bank-enterprise",
+  "description": "四权分离角色互斥矩阵。授权服务在赋权前应检查：待赋角色与已持有角色是否出现在同一互斥对中，命中则拒绝。",
+  "roles": [
+    {
+      "id": "RoleAuditor",
+      "label": "审计员",
+      "category": "AuditRole",
+      "category_label": "审计权角色"
+    },
+    {
+      "id": "RoleBusinessOperator",
+      "label": "业务操作员",
+      "category": "BusinessOperationRole",
+      "category_label": "业务操作权角色"
+    },
+    {
+      "id": "RoleSupervisor",
+      "label": "监督员",
+      "category": "SupervisionRole",
+      "category_label": "监督权角色"
+    },
+    {
+      "id": "RoleSystemAdmin",
+      "label": "系统管理员",
+      "category": "SystemAdministrationRole",
+      "category_label": "系统管理权角色"
+    }
+  ],
+  "exclusion_pairs": [
+    {
+      "a": "RoleAuditor",
+      "a_label": "审计员",
+      "b": "RoleBusinessOperator",
+      "b_label": "业务操作员"
+    },
+    {
+      "a": "RoleAuditor",
+      "a_label": "审计员",
+      "b": "RoleSupervisor",
+      "b_label": "监督员"
+    },
+    {
+      "a": "RoleAuditor",
+      "a_label": "审计员",
+      "b": "RoleSystemAdmin",
+      "b_label": "系统管理员"
+    },
+    {
+      "a": "RoleBusinessOperator",
+      "a_label": "业务操作员",
+      "b": "RoleSupervisor",
+      "b_label": "监督员"
+    },
+    {
+      "a": "RoleBusinessOperator",
+      "a_label": "业务操作员",
+      "b": "RoleSystemAdmin",
+      "b_label": "系统管理员"
+    },
+    {
+      "a": "RoleSupervisor",
+      "a_label": "监督员",
+      "b": "RoleSystemAdmin",
+      "b_label": "系统管理员"
+    }
+  ],
+  "exclusions_by_role": {
+    "RoleAuditor": [
+      "RoleBusinessOperator",
+      "RoleSupervisor",
+      "RoleSystemAdmin"
+    ],
+    "RoleBusinessOperator": [
+      "RoleAuditor",
+      "RoleSupervisor",
+      "RoleSystemAdmin"
+    ],
+    "RoleSupervisor": [
+      "RoleAuditor",
+      "RoleBusinessOperator",
+      "RoleSystemAdmin"
+    ],
+    "RoleSystemAdmin": [
+      "RoleAuditor",
+      "RoleBusinessOperator",
+      "RoleSupervisor"
+    ]
+  },
+  "category_exclusions": [
+    [
+      "SystemAdministrationRole",
+      "BusinessOperationRole",
+      "AuditRole",
+      "SupervisionRole"
+    ]
+  ],
+  "separation_rules": [
+    {
+      "name": "报送编制复核分离",
+      "left_property": "compilesReport",
+      "right_property": "reviewsReport",
+      "description": "同一员工不得对同一报送批次既编制又复核。"
+    }
+  ],
+  "completeness": {
+    "role_count": 4,
+    "pair_count": 6,
+    "expected_pairs": 6,
+    "complete": true
+  }
+}

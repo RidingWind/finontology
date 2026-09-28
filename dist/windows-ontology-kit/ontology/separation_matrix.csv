@@ -1,0 +1,7 @@
+role_a,role_a_label,role_b,role_b_label
+RoleAuditor,审计员,RoleBusinessOperator,业务操作员
+RoleAuditor,审计员,RoleSupervisor,监督员
+RoleAuditor,审计员,RoleSystemAdmin,系统管理员
+RoleBusinessOperator,业务操作员,RoleSupervisor,监督员
+RoleBusinessOperator,业务操作员,RoleSystemAdmin,系统管理员
+RoleSupervisor,监督员,RoleSystemAdmin,系统管理员
